@@ -1,0 +1,175 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background:  #e7dcc3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sound button */
+#sound-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffb800;
+  border: 1px solid #ffb800;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+#sound-toggle:hover {
+  background: rgba(255, 184, 0, 0.8);
+  color: #000;
+}
+
+/* Card Container */
+.card-container {
+  width: 360px;
+  height: 500px;
+  perspective: 1200px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease forwards;
+  z-index: 5;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Flip Card */
+.card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1.3s ease-in-out 0.2s, box-shadow 0.5s ease;
+  border-radius: 20px;
+  background: 
+    linear-gradient(135deg, rgba(255, 174, 66, 0.16), rgba(139, 0, 0, 0.22)),
+    rgba(255, 255, 255, 0.10);
+
+  border: 1.5px solid rgba(255, 184, 0, 0.32);
+  box-shadow: 0 0 24px 0 rgba(139, 0, 0, 0.16), 0 4px 32px 0 rgba(255, 174, 66, 0.08);
+}
+
+
+.card-container:hover .card {
+  transform: rotateY(180deg);
+  box-shadow: 0 0 18px rgba(255, 69, 0, 0.4), 0 0 36px rgba(255, 174, 66, 0.2);
+}
+
+/* Card Faces */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Image Front */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Glassmorphic Back */
+.card-back {
+  background: linear-gradient(
+      135deg,
+      rgba(255, 174, 66, 0.20) 0%,
+      rgba(139, 0, 0, 0.18) 100%
+    ),
+    rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  color: #f1f1f1;
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1.5px solid rgba(255, 184, 0, 0.23);
+  box-shadow: 0 0 24px 0 rgba(139, 0, 0, 0.13), 0 4px 32px 0 rgba(255, 174, 66, 0.06);
+}
+
+/* Content */
+.back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+}
+
+.back-content .text {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+.back-content h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: #ffd166; /* Warm gold */
+  margin-bottom: 10px;
+  text-shadow: 0 2px 8px rgba(139, 0, 0, 0.18), 0 0 5px rgba(255, 184, 0, 0.27);
+}
+
+.back-content .quote {
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #ffe6b3; /* Soft beige/gold */
+  text-shadow: 0 0 3px rgba(255, 174, 66, 0.18);
+}
+
+.back-content .desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #f5f3ee; /* Warm light gray */
+  padding: 0 10px;
+  text-shadow: 0 1px 3px rgba(139, 0, 0, 0.08);
+}
+
+
+/* Button */
+.btn {
+  margin-bottom: 20px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, #ff4e00, #ffb800);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 98, 0, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #ffb800, #ff4e00);
+  transform: scale(1.05);
+}
